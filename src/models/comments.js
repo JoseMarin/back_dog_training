@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       {name: user.name}
       );
       Comments.belongsTo(models.Post, {
-        foreignKey: 'userId'
+        foreignKey: 'postId'
       });
     }
   };

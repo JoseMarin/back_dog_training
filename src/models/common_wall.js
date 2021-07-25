@@ -11,10 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Post.hasMany(models.Post, {
+        foreignKey: 'postId',
+        onDelete: 'CASCADE'
+      });
     }
   };
   Common_wall.init({
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    postId: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Common_wall',
