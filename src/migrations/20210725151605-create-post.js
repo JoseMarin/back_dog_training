@@ -27,6 +27,15 @@ module.exports = {
         onUpdate: "CASCADE",//Para borrar en todas las tablas o sumar y asi mantener nuestra integridad
         onUpdate: "CASCADE"
       },
+      commont_wallId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Common_walls',
+          key: 'id'
+        },
+        onUpdate: "CASCADE",//Para borrar en todas las tablas o sumar y asi mantener nuestra integridad
+        onUpdate: "CASCADE"
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
