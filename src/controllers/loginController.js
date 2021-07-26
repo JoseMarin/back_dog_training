@@ -1,7 +1,7 @@
 const userController = require("./usersControllers");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const secret = "Somos un equipazo";
+const secret = "Bienvenido a la Comunidad";
 
 
 class LoginController {
