@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Post.hasMany(models.Post, {
+      Common_wall.hasMany(models.Post, {
         foreignKey: 'postId',
         onDelete: 'CASCADE'
       });
