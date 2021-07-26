@@ -1,15 +1,14 @@
 const express = require("express");
+const db = require("./db.js");
 const app = express();
 const router = require('./router');
 const port = process.env.PORT || 3001;
-const db = require("./db.js");
 const cors = require('cors');
 
 //Middleware
 app.use(cors()); //Importante el orden en que declaramos.
 app.use(express.json());
 app.use(router);
-
 
 db
 .then(() => {
