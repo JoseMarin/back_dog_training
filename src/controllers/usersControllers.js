@@ -1,6 +1,6 @@
 const { User } = require("../models");
 const bcrypt = require("bcrypt");
-const nodemailer = require('../config/nodemailerConfig.js');
+const nodemailer = require('../config/nodemailerConfig');
 
 class Users {
 
@@ -25,7 +25,7 @@ class Users {
     async createUser(user) {
         user.password = await bcrypt.hash(user.password, 10);
 
-        //Creamos una token que enviamos por mail para activar
+        //Creamos una token random y lo enviamos por mail para activar la cuenta.
         const characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
         let token = '';
 
@@ -36,14 +36,9 @@ class Users {
         user = {
         name : user.name,
         lastName: user.lastName,
-        lastName2: user.lastName2,
         password: user.password,
-        dateOfBirth: user.dateOfBirth,
         city: user.city,
-        address: user.address,
-        cp: user.cp,
         email: user.email,
-        phone: user.phone,
         token: token
     }
 
@@ -58,18 +53,16 @@ class Users {
     //Para activar la cuenta de usuario. Recibiendo el token y id
     async updateActive(token) {
 
-            let user = await User.findOne({ where: { token } });
-            let usuario = await User.update(
-              //Datos que cambiamos
-              {
-                isActive: true,
-              },
-              {where: {id: user.id}}
-
-            );
-            let resultado = "La cuenta se ha activado correctamente. Ya puedes ingresar a la plataforma y alquilar tu próxima película.";
-            
-            return resultado;
+        let user = await User.findOne({ where: { token } });
+        let usuario = await User.update(
+          //Datos que cambiamos
+          {
+            isActive: true,
+          },
+            {where: {id: user.id}}
+        );
+        let resultado = "La cuenta se ha activado correctamente. Ya puedes ingresar a la plataforma y conocer a la comunidad.";
+            return resultado;
     }
 
     async modifyUser(body) {
@@ -88,10 +81,8 @@ class Users {
         )
     }
 
-
     async modifyPassword(body) {
 
-        // let user = await User.findByPk(body.user);
         let user = await User.findByPk(body.userId);
         let oldPassword = body.oldPassword;
 
@@ -114,16 +105,6 @@ class Users {
         return User.findOne({
             where: {id : body.userId}
         });
-
-        // return User.findByIdAndUpdate(
-        //     {
-        //         id: body.user,
-        //         password: newPassword
-        //     },
-
-        //     { where: {id: body.id}}
-        // )
-
     }
 
     async findUser (id) {
