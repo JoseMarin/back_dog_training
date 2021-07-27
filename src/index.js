@@ -2,7 +2,7 @@ const express = require("express");
 const db = require("./db.js");
 const app = express();
 const router = require('./router');
-const port = process.env.PORT || 3001;
+const port = process.env.PORT || 30066;
 const cors = require('cors');
 
 //Middleware
@@ -13,7 +13,7 @@ app.use(router);
 db
 .then(() => {
     // app.listen(port, () => console.log(`Node server runing on http://localhost:${port}` ));
-    app.listen(process.env.PORT || 3001, function(){
+    app.listen(process.env.PORT || 30066, function(){
         console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
     });
 })
