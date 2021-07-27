@@ -12,10 +12,7 @@ app.use(router);
 
 db
 .then(() => {
-    // app.listen(port, () => console.log(`Node server runing on http://localhost:${port}` ));
-    app.listen(process.env.PORT || 30066, function(){
-        console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-    });
+    app.listen(port, () => console.log(`Node server runing on http://localhost:${port}` ));
 })
 .catch((err) => console.log(err.message));
 
