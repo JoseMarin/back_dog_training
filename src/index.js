@@ -6,7 +6,7 @@ const port = process.env.PORT || 3001;
 const cors = require('cors');
 
 //Middleware
-app.use(cors({ origin: '*', credentials: true  })); //Importante el orden en que declaramos.
+app.use(cors()); //Importante el orden en que declaramos.
 app.use(express.json());
 app.use(router);
 
