@@ -2,7 +2,6 @@ const jwt = require("jsonwebtoken");
 const secret = "Final Project";
 
 const authenticate = (req, res, next) => {
-
     try {
 
         if( !req.headers.authorization ) {
