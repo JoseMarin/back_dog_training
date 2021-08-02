@@ -5,7 +5,7 @@ const authenticate = (req, res, next) => {
     try {
 
         if( !req.headers.authorization ) {
-            return new Error ("No tienes token");
+            return new Error ("You don't have token.");
         }
 
         //Aqui obtenemos el token
@@ -14,7 +14,7 @@ const authenticate = (req, res, next) => {
 
         if( auth.userId != req.body.userId )  {
 
-            throw new Error("No tienes permiso.");
+            throw new Error("You don't have authorization.");
         } else {
             return next();
         }
