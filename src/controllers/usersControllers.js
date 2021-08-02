@@ -70,7 +70,6 @@ class Users {
         await User.update(
 
             {
-                name: body.name,
                 email: body.email,
                 city: body.city
             },
@@ -85,9 +84,9 @@ class Users {
 
     async modifyPassword(body) {
 
-        let user = await User.findUser(body.userId);
-        let oldPassword = body.oldPassword;
+        let user = await usersController.findUser(body.userId);
 
+        let oldPassword = body.oldPassword;
         let password = user.password;
 
         let verify = await bcrypt.compare(oldPassword, password);
