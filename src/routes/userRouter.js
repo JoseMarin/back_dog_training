@@ -26,9 +26,10 @@ router.get("/:id", admin, async(req, res) => {
     }
 });
 
-router.put("/updateuser", authenticate, async(req, res) => {
+router.put("/", authenticate, async(req, res) => {
     try {
         const body = req.body;
+        console.log(err.response.data.message, body, 'back1');
         res.json( await usersControllers.modifyUser(body));
     } catch (error) {
         return res.status(500).json({

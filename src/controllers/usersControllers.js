@@ -66,24 +66,26 @@ class Users {
     }
 
     async modifyUser(body) {
+        //DAtos que cambiamos
+        await User.update(
 
-        return User.update(
-            //DAtos que cambiamos
             {
                 name: body.name,
-                address: body.address,
-                cp: body.cp,
                 email: body.email,
-                phone: body.phone
+                city: body.city
             },
             //Donde
-            { where: {id: body.id}}
+            { where: {id: body.userId}}
         )
+
+        return User.findOne({
+            where: {id : body.userId}
+        });
     }
 
     async modifyPassword(body) {
 
-        let user = await User.findByPk(body.userId);
+        let user = await User.findUser(body.userId);
         let oldPassword = body.oldPassword;
 
         let password = user.password;
@@ -94,7 +96,7 @@ class Users {
          throw new Error('Wrong user or password');
         }
 
-        let newPassword = await bcrypt.hash( body.newPassword, 10 );
+        let newPassword = await bcrypt.hashSync( body.newPassword, 10 );
 
         let updatepassword = await User.update(
             {password: newPassword},
