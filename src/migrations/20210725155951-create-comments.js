@@ -11,23 +11,14 @@ module.exports = {
       content: {
         type: Sequelize.STRING
       },
-      userId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Users',
-          key: 'id'
-        },
-        onUpdate: "CASCADE",//Para borrar en todas las tablas o sumar y asi mantener nuestra integridad
-        onUpdate: "CASCADE"
+      userName: {
+        type: Sequelize.STRING
       },
-      postId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Posts',
-          key: 'id'
-        },
-        onUpdate: "CASCADE",//Para borrar en todas las tablas o sumar y asi mantener nuestra integridad
-        onUpdate: "CASCADE"
+      lastName: {
+        type: Sequelize.STRING
+      },
+      date: {
+        type: Sequelize.DATE
       },
       createdAt: {
         allowNull: false,

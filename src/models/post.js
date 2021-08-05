@@ -11,12 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Post.belongsTo(models.User, {
+      Post.belongsTo(models.Relation, {
         foreignKey: 'userId',
         onDelete: 'CASCADE'
       });
 
-      Post.hasMany(models.Comments, {
+      Post.belongsTo(models.Relation, {
         foreignKey: 'commentsId',
         as: 'comments',
         onDelete: 'CASCADE'
@@ -28,6 +28,10 @@ module.exports = (sequelize, DataTypes) => {
     content: DataTypes.STRING,
     image: DataTypes.STRING,
     userId: DataTypes.INTEGER,
+    commentsId: DataTypes.INTEGER,
+    userName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    date: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'Post',
