@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Comments.belongsTo(models.Relation, {
         foreignKey: 'userId',
-        me: 'name'
+        me: 'name',
+        onDelete: 'CASCADE'
       },
       {name: user.name}
       );
@@ -28,10 +29,10 @@ module.exports = (sequelize, DataTypes) => {
   };
   Comments.init({
     content: DataTypes.STRING,
-    userId: DataTypes.INTEGER,
-    postId: DataTypes.INTEGER,
     userName: DataTypes.STRING,
     lastName: DataTypes.STRING,
+    userId: DataTypes.INTEGER,
+    postId: DataTypes.INTEGER,
     date: DataTypes.DATE,
   }, {
     sequelize,

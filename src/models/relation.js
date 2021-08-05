@@ -1,7 +1,5 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
+"use strict";
+const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Relation extends Model {
     /**
@@ -11,18 +9,31 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Relation.hasMany(models.User, { foreignKey: "userId", onDelete: 'CASCADE' });
-      Relation.hasMany(models.Post, { foreignKey: "postId", onDelete: 'CASCADE' });
-      Relation.hasMany(models.Comments, {foreignKey: 'commentsId',as: 'comments',onDelete: 'CASCADE'});
+      Relation.hasMany(models.User, {
+        foreignKey: 'userId',
+        onDelete: 'CASCADE'
+      });
+      Relation.hasMany(models.Post, {
+        foreignKey: 'postId',
+        onDelete: 'CASCADE'
+      });
+      Relation.hasMany(models.Comments, {
+        foreignKey: 'commentsId',
+        as: 'comments',
+        onDelete: 'CASCADE'
+      });
     }
-  };
-  Relation.init({
-    userId: DataTypes.INTEGER,
-    postId: DataTypes.INTEGER,
-    commentsId: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'Relation',
-  });
+  }
+  Relation.init(
+    {
+      userId: DataTypes.INTEGER,
+      postId: DataTypes.INTEGER,
+      commentsId: DataTypes.INTEGER,
+    },
+    {
+      sequelize,
+      modelName: "Relation",
+    }
+  );
   return Relation;
 };
