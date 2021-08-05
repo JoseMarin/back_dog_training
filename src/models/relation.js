@@ -9,15 +9,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Relation.hasMany(models.User, {
+      Relation.belongsTo(models.User, {
         foreignKey: 'userId',
         onDelete: 'CASCADE'
       });
-      Relation.hasMany(models.Post, {
+      Relation.belongsTo(models.Post, {
         foreignKey: 'postId',
         onDelete: 'CASCADE'
       });
-      Relation.hasMany(models.Comments, {
+      Relation.belongsTo(models.Comments, {
         foreignKey: 'commentsId',
         as: 'comments',
         onDelete: 'CASCADE'

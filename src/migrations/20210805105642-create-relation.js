@@ -11,29 +11,29 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Users",
-          key: "id"
+          model: 'Users',
+          key: 'id'
         },
-        onUpdate: "CASCADE",//Para borrar en todas las tablas o sumar y asi mantener nuestra integridad
-        onUpdate: "CASCADE"
+        onUpdate: 'CASCADE',//Para borrar en todas las tablas o sumar y asi mantener nuestra integridad
+        onUpdate: 'CASCADE'
       },
       postId: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Posts",
-          key: "postId"
+          model: 'Posts',
+          key: 'id'
         },
-        onUpdate: "CASCADE",//Para borrar en todas las tablas o sumar y asi mantener nuestra integridad
-        onUpdate: "CASCADE"
+        onUpdate: 'CASCADE',//Para borrar en todas las tablas o sumar y asi mantener nuestra integridad
+        onUpdate: 'CASCADE'
       },
       commentId: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Comments",
-          key: "id"
+          model: 'Comments',
+          key: 'id'
         },
-        onUpdate: "CASCADE",//Para borrar en todas las tablas o sumar y asi mantener nuestra integridad
-        onUpdate: "CASCADE"
+        onUpdate: 'CASCADE',//Para borrar en todas las tablas o sumar y asi mantener nuestra integridad
+        onUpdate: 'CASCADE'
       },
       createdAt: {
         allowNull: false,
