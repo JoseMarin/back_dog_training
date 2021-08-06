@@ -1,47 +1,31 @@
-const { Post }= require("../models");
+const { Post } = require("../models");
 const findById = require("../models");
 const router = require("../routes/postRouter");
 
 class Msj {
-    constructor() {}
+  constructor() {}
 
-    async makePost(post) {
+  async makePost(post) {
+    return Post.create(post);
+  }
 
-            return Post.create(post);
+  async findAllPost() {
+    return Post.findAll();
+  }
 
-        // post = {
-        //     title: post.title,
-        //     post: post.post
-        // }
+  async removePost(req) {
+    return Post.findByIdAndRemove({ id: req.id });
+  }
 
-        // let createPost = await Post.create(post);
+  async findPostByUserId(userId) {
+    return Post.findAll({
+      where: { userId: userId },
+    });
+  }
 
-        // return createPost;
-    }
-
-    async findAllPost() {
-        return Post.findAll();
-    }
-    // return Post.findOne( { posts: body.id  }, );
-
-    async removePost(req) {
-        return Post.findByIdAndRemove( { id: req.id } );
-    }
-
-    // async findPostByUserId(id) {
-
-    //     return Post.findAll({ where: {userId: id}})
-    // }
-
-    async findPostByUserId(id) {
-
-        return Post.findByPk(id);
-    }
-
-    async removePost(data) {
-
-        return Post.destroy( {where: {id: data.id}});
-    }
+  async removePost(data) {
+    return Post.destroy({ where: { id: data.id } });
+  }
 }
 
 let postControllers = new Msj();
