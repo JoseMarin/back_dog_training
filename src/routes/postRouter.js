@@ -38,7 +38,7 @@ router.get("/", admin, async(req, res) => {
 });
 
 //Para traer los posts de un usuario por id
-router.get("/userpost",  async(req, res) => {
+router.post("/userpost",  async(req, res) => {
     try {
         const userId = req.body.userId;
         res.json(await postControllers.findPostByUserId(userId));
