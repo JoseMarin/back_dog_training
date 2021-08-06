@@ -26,7 +26,7 @@ module.exports = {
         onUpdate: 'CASCADE',//Para borrar en todas las tablas o sumar y asi mantener nuestra integridad
         onUpdate: 'CASCADE'
       },
-      commentId: {
+      commentsId: {
         type: Sequelize.INTEGER,
         references: {
           model: 'Comments',
