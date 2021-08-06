@@ -26,6 +26,7 @@ router.delete("/deletepost", authenticate, async(req, res) => {
     }
 });
 
+//El administrador podrá ver todos los posts
 router.get("/", admin, async(req, res) => {
     try {
         res.json(await postControllers.findAllPost());
@@ -36,10 +37,11 @@ router.get("/", admin, async(req, res) => {
     }
 });
 
-router.get("/userid",  async(req, res) => {
+//Para traer los posts de un usuario por id
+router.get("/userpost",  async(req, res) => {
     try {
-        const id = req.body.id;
-        res.json(await postControllers.findPostByUserId(id));
+        const userId = req.body.userId;
+        res.json(await postControllers.findPostByUserId(userId));
     } catch (error) {
         return res.status(500).json({
             message: error.message
