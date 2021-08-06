@@ -30,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     userName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     date: DataTypes.DATE,
+    userId: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Post',
