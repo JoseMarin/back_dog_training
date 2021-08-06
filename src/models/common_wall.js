@@ -11,10 +11,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Common_wall.hasMany(models.Post, {
-        foreignKey: 'postId',
-        onDelete: 'CASCADE'
-      });
     }
   };
   Common_wall.init({
