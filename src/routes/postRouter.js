@@ -27,7 +27,7 @@ router.delete("/deletepost", authenticate, async(req, res) => {
 });
 
 //El administrador podrá ver todos los posts
-router.get("/", admin, async(req, res) => {
+router.get("/",  async(req, res) => {
     try {
         res.json(await postControllers.findAllPost());
     } catch (error) {
