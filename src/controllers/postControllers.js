@@ -13,9 +13,9 @@ class Msj {
     return Post.findAll();
   }
 
-  async removePost(req) {
-    return Post.findByIdAndRemove({ id: req.id });
-  }
+  // async removePost(req) {
+  //   return Post.findByIdAndRemove({ id: req.id });
+  // }
 
   async findPostByUserId(userId) {
     return Post.findAll({
