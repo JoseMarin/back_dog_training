@@ -18,23 +18,17 @@ module.exports = {
         type: Sequelize.STRING,
         required: false
       },
+      userName: {
+        type: Sequelize.STRING
+      },
+      lastName: {
+        type: Sequelize.STRING
+      },
+      date: {
+        type: Sequelize.DATE
+      },
       userId: {
         type: Sequelize.INTEGER,
-        references: {
-          model: 'Users',
-          key: 'id'
-        },
-        onUpdate: "CASCADE",//Para borrar en todas las tablas o sumar y asi mantener nuestra integridad
-        onUpdate: "CASCADE"
-      },
-      commont_wallId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Common_walls',
-          key: 'id'
-        },
-        onUpdate: "CASCADE",//Para borrar en todas las tablas o sumar y asi mantener nuestra integridad
-        onUpdate: "CASCADE"
       },
       createdAt: {
         allowNull: false,

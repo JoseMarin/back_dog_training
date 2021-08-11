@@ -11,12 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasMany(models.Post, {
+      User.hasMany(models.Relation, {
         foreignKey: 'postId',
         as: 'post',
         onDelete: 'CASCADE'
       });
-      User.hasMany(models.Comments, {
+      User.hasMany(models.Relation, {
         foreignKey: 'commentsId',
         as: 'comments',
         onDelete: 'CASCADE'
@@ -27,9 +27,9 @@ module.exports = (sequelize, DataTypes) => {
     name: DataTypes.STRING,
     lastName: DataTypes.STRING,
     password: DataTypes.STRING,
-    isAdmin: DataTypes.BOOLEAN,
     city: DataTypes.STRING,
     email: DataTypes.STRING,
+    isAdmin: DataTypes.BOOLEAN,
     isActive: DataTypes.BOOLEAN,
     token: DataTypes.STRING
   }, {

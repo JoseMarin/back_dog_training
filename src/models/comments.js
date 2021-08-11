@@ -13,21 +13,25 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Comments.belongsTo(models.User, {
+      Comments.belongsTo(models.Relation, {
         foreignKey: 'userId',
-        me: 'name'
+        me: 'name',
+        onDelete: 'CASCADE'
       },
       {name: user.name}
       );
-      Comments.belongsTo(models.Post, {
-        foreignKey: 'postId'
+
+      Comments.belongsTo(models.Relation, {
+        foreignKey: 'postId',
+        onDelete: 'CASCADE'
       });
     }
   };
   Comments.init({
     content: DataTypes.STRING,
-    userId: DataTypes.INTEGER,
-    postId: DataTypes.INTEGER
+    userName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    date: DataTypes.DATE,
   }, {
     sequelize,
     modelName: 'Comments',
