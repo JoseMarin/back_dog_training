@@ -13,18 +13,14 @@ class Msj {
     return Post.findAll();
   }
 
-  // async removePost(req) {
-  //   return Post.findByIdAndRemove({ id: req.id });
-  // }
-
   async findPostByUserId(userId) {
     return Post.findAll({
       where: { userId: userId },
     });
   }
 
-  async removePost(data) {
-    return Post.destroy({ where: { id: data.id } });
+  async removePost(postId) {
+    return Post.destroy({ where: { id: postId } });
   }
 }
 
