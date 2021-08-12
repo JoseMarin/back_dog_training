@@ -15,7 +15,7 @@ router.post("/", async(req, res) => {
     }
 });
 
-router.delete("/deletepost", authenticate, async(req, res) => {
+router.put("/deletepost", authenticate, async(req, res) => {
     try {
         const postId = req.body.postId;
         res.json(await postControllers.removePost(postId))
