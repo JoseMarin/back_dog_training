@@ -18,7 +18,8 @@ router.post("/", async(req, res) => {
 router.put("/deletepost", authenticate, async(req, res) => {
     try {
         const postId = req.body.postId;
-        res.json(await postControllers.removePost(postId))
+        const userId = req.body.userId;
+        res.json(await postControllers.removePost(postId, userId))
     } catch (error) {
         return res.status(500).json({
             message: error.message

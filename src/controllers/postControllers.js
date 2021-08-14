@@ -1,5 +1,5 @@
 const { Post } = require("../models");
-const findById = require("../models");
+const findByPk = require("../models");
 const router = require("../routes/postRouter");
 
 class Msj {
@@ -19,8 +19,13 @@ class Msj {
     });
   }
 
-  async removePost(postId) {
-    return Post.destroy({ where: { id: postId } });
+  async removePost(postId, userId) {
+    let post = await Post.findByPk(postId);
+    if (post.userId === userId) {
+      return Post.destroy({ where: { id: postId } });
+    } else {
+      console.log('no tienes permiso');
+    }
   }
 }
 
