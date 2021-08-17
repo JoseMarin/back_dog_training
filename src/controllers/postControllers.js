@@ -24,7 +24,7 @@ class Msj {
     if (post.userId === userId) {
       return Post.destroy({ where: { id: postId } });
     } else {
-      console.log('no tienes permiso');
+      throw new Error("Action canceled.");
     }
   }
 }
