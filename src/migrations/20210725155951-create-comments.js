@@ -8,6 +8,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      postId: {
+        type: Sequelize.INTEGER,
+      },
       content: {
         type: Sequelize.STRING
       },
@@ -16,6 +19,9 @@ module.exports = {
       },
       lastName: {
         type: Sequelize.STRING
+      },
+      userId: {
+        type: Sequelize.INTEGER,
       },
       date: {
         type: Sequelize.DATE
