@@ -5,8 +5,8 @@ const router = require("../routes/commentsRouter");
 class Msj {
   constructor() {}
 
-  async makeComment(post) {
-    return Comments.create(post);
+  async makeComment(comment) {
+    return Comments.create(comment);
   }
 
   async findAllComments() {
