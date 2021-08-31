@@ -19,6 +19,23 @@ class Msj {
     });
   }
 
+  async modifyPost(body) {
+    console.log(body)
+    //Datos que cambiamos
+    await Post.update(
+      {
+        title: body.title,
+        content: body.content,
+      },
+      //Donde
+      { where: { id: body.postId } }
+    );
+
+    return Post.findOne({
+      where: { id: body.userId },
+    });
+  }
+
   async removePost(postId, userId) {
     let post = await Post.findByPk(postId);
     if (post.userId === userId) {
