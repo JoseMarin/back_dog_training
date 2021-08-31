@@ -15,7 +15,7 @@ router.post("/", async(req, res) => {
     }
 });
 
-router.put("/deletepost", authenticate, async(req, res) => {
+router.put("/deletepost",  async(req, res) => {
     try {
         const postId = req.body.postId;
         const userId = req.body.userId;
@@ -43,6 +43,18 @@ router.post("/userpost",  async(req, res) => {
     try {
         const userId = req.body.userId;
         res.json(await postControllers.findPostByUserId(userId));
+    } catch (error) {
+        return res.status(500).json({
+            message: error.message
+        });
+    }
+});
+
+router.put("/updatepost", authenticate, async(req, res) => {
+    try {
+        console.log('req',req.post)
+        const body = req.post;
+        res.json(await postControllers.modifyPost(body));
     } catch (error) {
         return res.status(500).json({
             message: error.message

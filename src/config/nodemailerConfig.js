@@ -17,7 +17,7 @@ module.exports.sendConfirmationEmail = (name, email, confirmationCode) => {
     to: email,
     subject: "Dog Training Por favor, confirma tu cuenta de correo.",
     html: `<h1>Correo de Activación de cuenta</h1>
-        <h2>Hola ${name}</h2>
+        <h2>Hola ${name},</h2>
         <p>Gracias por registrarte en Dog Training.
         Por favor, confirma tu email haciendo click en el siguiente enlace.</p>
         <a href=http://localhost:5000/users/confirm/${confirmationCode}> Activar cuenta.</a>

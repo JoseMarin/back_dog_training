@@ -1,6 +1,5 @@
 'use strict';
 
-const user = require("./user");
 const {
   Model
 } = require('sequelize');
@@ -15,10 +14,8 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Comments.belongsTo(models.Relation, {
         foreignKey: 'userId',
-        me: 'name',
         onDelete: 'CASCADE'
       },
-      {name: user.name}
       );
 
       Comments.belongsTo(models.Relation, {
