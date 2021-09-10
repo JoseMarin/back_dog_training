@@ -1,0 +1,71 @@
+.vistaRegister {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 90vh;
+
+  .formulario1 {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    box-sizing: border-box;
+    align-items: center;
+    top: 7em;
+
+    .errorsText {
+      position: relative;
+      top: -1em;
+      font-size: 0.9rem;
+      margin-left: 11em;
+      color: red;
+    }
+    .errorsText2 {
+      font-size: 0.85rem;
+      position: relative;
+      top: -1.1em;
+      color: red;
+    }
+
+    .box1 {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    .registerButton {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: rgb(104, 104, 104);
+      cursor: pointer;
+      color: #3b3b3d;
+      border-radius: 0.4em;
+      background-color: rgba(235, 234, 234, 255);
+      height: 3em;
+      width: 8em;
+      margin-bottom: 2em;
+      top: 4em;
+      transition: all 900ms ease;
+
+      &:hover {
+        background: rgb(96, 101, 105);
+        background: linear-gradient(
+          343deg,
+          rgba(96, 101, 105, 1) 0%,
+          rgba(213, 31, 116, 1) 75%,
+          rgba(169, 57, 112, 1) 83%,
+          rgba(108, 94, 106, 1) 100%,
+          rgba(223, 25, 117, 1) 100%,
+          rgba(96, 101, 105, 1) 100%
+        );
+        transition: all 900ms ease;
+        color: #fff;
+      }
+    }
+  }
+}

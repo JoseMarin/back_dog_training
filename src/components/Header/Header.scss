@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.header {
+  border: none;
+
+}
+.about {
+  &:hover {
+    color: rgb(255, 0, 119);
+    transition: all 900ms ease;
+  }
+}
+.text {
+  color: black;
+}
+.logoHeader {
+  border-radius: 0.8em;
+  cursor: pointer;
+}
+.linkLogout {
+  cursor: pointer;
+  color: rgb(0, 0, 0);
+  // color: #fd478f;
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+.burguer {
+  background-color: white;
+}
